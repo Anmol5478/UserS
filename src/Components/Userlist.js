@@ -1,6 +1,6 @@
-
+// src/pages/UserList.js
 import React, { useState, useEffect } from "react";
-import "./UserList.css";
+import "./UserList.css"; 
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -12,11 +12,11 @@ const UserList = () => {
   const [editForm, setEditForm] = useState({ first_name: "", last_name: "", email: "" });
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true; 
     fetchUsers(page, isMounted);
 
     return () => {
-      isMounted = false;
+      isMounted = false; 
     };
   }, [page]);
 
@@ -104,9 +104,11 @@ const UserList = () => {
                   <h3>{user.first_name} {user.last_name}</h3>
                   <p>{user.email}</p>
                   <div className="user-actions">
-
-                  <button className="edit-btn" onClick={() => handleEdit(user)}>Edit</button>
-                  <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
+                  <i className="fa fa-edit" onClick={() => handleEdit(user)} title="Edit"></i>
+                  <i class="fa fa-trash-o" onClick={() => handleDelete(user.id)} title="Delete"></i>
+                  {/* <i class="material-icons" onClick={() => handleDelete(user.id)}></i> */}
+                  {/* <button className="edit-btn" onClick={() => handleEdit(user)}>Edit</button> */}
+                  {/* <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button> */}
                   </div>
                 </>
               )}
