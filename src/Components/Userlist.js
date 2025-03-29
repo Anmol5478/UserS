@@ -1,6 +1,6 @@
-// src/pages/UserList.js
+
 import React, { useState, useEffect } from "react";
-import "./UserList.css"; // CSS for styling
+import "./UserList.css";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -12,11 +12,11 @@ const UserList = () => {
   const [editForm, setEditForm] = useState({ first_name: "", last_name: "", email: "" });
 
   useEffect(() => {
-    let isMounted = true; // ✅ Prevent state updates after unmount
+    let isMounted = true;
     fetchUsers(page, isMounted);
 
     return () => {
-      isMounted = false; // Cleanup function
+      isMounted = false;
     };
   }, [page]);
 
