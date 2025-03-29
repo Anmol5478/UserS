@@ -1,4 +1,3 @@
-// src/pages/LoginPage.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
@@ -26,7 +25,7 @@ const LoginPage = () => {
 
       if (response.ok) {
         alert("Login successful");
-        localStorage.setItem("authToken", data.token); // Store token
+        localStorage.setItem("authToken", data.token);
         console.log("Token:", data.token);
         navigate("/users");
       } else {
