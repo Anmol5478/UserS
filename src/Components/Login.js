@@ -1,25 +1,40 @@
 // src/pages/LoginPage.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoginPage.css"; // Import CSS for styling
+import "./LoginPage.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // ✅ Correct way to navigate
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setError(null);
 
-    if (email === "eve.holt@reqres.in" && password === "cityslicka") {
-      alert("Login successful");
-      navigate("/users"); // ✅ Corrected navigation
-    } else {
-      alert("Login failed");
+    try {
+      const response = await fetch("https://reqres.in/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Login successful");
+        localStorage.setItem("authToken", data.token); // Store token
+        console.log("Token:", data.token);
+        navigate("/users");
+      } else {
+        setError(data.error || "Invalid credentials. Please try again.");
+      }
+    } catch (error) {
+      setError("Something went wrong. Please try again later.");
     }
-
-    console.log("Email:", email);
-    console.log("Password:", password);
   };
 
   return (
@@ -30,17 +45,18 @@ const LoginPage = () => {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)} // ✅ Controlled input
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)} // ✅ Controlled input
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
         <button type="submit">Login</button>
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
