@@ -1,4 +1,3 @@
-// src/pages/UserList.js
 import React, { useState, useEffect } from "react";
 import "./UserList.css"; 
 
