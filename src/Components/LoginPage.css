@@ -1,11 +1,9 @@
-/* General Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Login Page Background */
 .login-page {
   display: flex;
   justify-content: center;
@@ -13,7 +11,6 @@
   position: relative;
 }
 
-/* Overlay for better contrast */
 .login-page::before {
   content: "";
   position: absolute;
@@ -25,8 +22,6 @@
   backdrop-filter: blur(5px);
   z-index: 1;
 }
-
-/* Welcome Section */
 .login-background {
   position: relative;
   z-index: 2;
@@ -52,8 +47,6 @@
   margin-bottom: 15px;
   opacity: 0.9;
 }
-
-/* Login Container */
 .login-container {
   width: 350px;
   margin: 20px auto;
@@ -66,14 +59,14 @@
   z-index: 2;
 }
 
-/* Form Styles */
+
 h2 {
   margin-bottom: 15px;
   color: #fff;
   font-size: 22px;
 }
 
-/* Input Fields */
+
 input {
   width: 100%;
   padding: 12px;
@@ -94,7 +87,7 @@ input:focus {
   border: 2px solid #fff;
 }
 
-/* Buttons */
+
 button {
   width: 100%;
   padding: 12px;
@@ -112,14 +105,13 @@ button:hover {
   background: #ff4c4c;
 }
 
-/* Error Message */
 .error {
   color: #ff4444;
   margin-top: 10px;
   font-size: 14px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 480px) {
   .login-container {
     width: 90%;
