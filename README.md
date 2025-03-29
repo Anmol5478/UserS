@@ -36,10 +36,15 @@ This will start the app in development mode. Open [http://localhost:3000](http:/
 - Use **npm** or **yarn** as a package manager.
 
 ## 📷 Screenshots
-_Add screenshots of the application here_
+<img width="1371" alt="Screenshot 2025-03-29 at 7 23 31 PM" src="https://github.com/user-attachments/assets/f398b783-bdd0-4aa5-822a-32a16708f2a7" />
+<img width="1440" alt="Screenshot 2025-03-29 at 7 24 28 PM" src="https://github.com/user-attachments/assets/54d6e23c-043c-4d8b-9ac4-74f689fbee63" />
 
 ## 🎥 Working Video
-_Add a working demo video link here_
+
+
+https://github.com/user-attachments/assets/2e5249f5-98e4-4c2e-a448-ce0b0d2f51f0
+
+
 
 ## 🔗 API Used
 This application uses [Reqres API](https://reqres.in) for user authentication and fetching user data.
