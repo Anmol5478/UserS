@@ -38,6 +38,16 @@ const LoginPage = () => {
   };
 
   return (
+  <>
+  
+   <div className="login-page">
+      <div className="login-background">
+        <h1>Welcome to Our App</h1>
+        <p>Please login to access the user list.</p>
+      </div>
+    </div>
+
+
     <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -59,6 +69,9 @@ const LoginPage = () => {
         {error && <p className="error">{error}</p>}
       </form>
     </div>
+
+
+</>
   );
 };
 
