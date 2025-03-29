@@ -36,7 +36,8 @@ This will start the app in development mode. Open [http://localhost:3000](http:/
 - Use **npm** or **yarn** as a package manager.
 
 ## 📷 Screenshots
-<img width="1371" alt="Screenshot 2025-03-29 at 7 23 31 PM" src="https://github.com/user-attachments/assets/f398b783-bdd0-4aa5-822a-32a16708f2a7" />
+<img width="1440" alt="Screenshot 2025-03-29 at 7 24 02 PM" src="https://github.com/user-attachments/assets/ccaa923d-4607-4751-9bc2-c605a944afaf" />
+
 <img width="1440" alt="Screenshot 2025-03-29 at 7 24 28 PM" src="https://github.com/user-attachments/assets/54d6e23c-043c-4d8b-9ac4-74f689fbee63" />
 
 ## 🎥 Working Video
