@@ -8,6 +8,8 @@ const UserList = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [editingUserId, setEditingUserId] = useState(null);
+  const [editForm, setEditForm] = useState({ first_name: "", last_name: "", email: "" });
 
   useEffect(() => {
     let isMounted = true; // ✅ Prevent state updates after unmount
@@ -44,6 +46,20 @@ const UserList = () => {
     }
   };
 
+  const handleEdit = (user) => {
+    setEditingUserId(user.id);
+    setEditForm({ first_name: user.first_name, last_name: user.last_name, email: user.email });
+  };
+
+  const handleEditChange = (e) => {
+    setEditForm({ ...editForm, [e.target.name]: e.target.value });
+  };
+
+  const handleEditSubmit = (id) => {
+    setUsers(users.map(user => (user.id === id ? { ...user, ...editForm } : user)));
+    setEditingUserId(null);
+  };
+
   return (
     <div className="user-list-container">
       <h2>User List</h2>
@@ -57,18 +73,52 @@ const UserList = () => {
           {users.map(user => (
             <div key={user.id} className="user-card">
               <img src={user.avatar} alt={user.first_name} />
-              <h3>{user.first_name} {user.last_name}</h3>
-              <p>{user.email}</p>
-              <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
+              
+              {editingUserId === user.id ? (
+                <>
+                  <input
+                    type="text"
+                    name="first_name"
+                    value={editForm.first_name}
+                    onChange={handleEditChange}
+                  />
+                  <input
+                    type="text"
+                    name="last_name"
+                    value={editForm.last_name}
+                    onChange={handleEditChange}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={editForm.email}
+                    onChange={handleEditChange}
+                  />
+                  <div className="user-actions">
+                  <button className="save-btn" onClick={() => handleEditSubmit(user.id)}>Save</button>
+                  <button className="cancel-btn" onClick={() => setEditingUserId(null)}>Cancel</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h3>{user.first_name} {user.last_name}</h3>
+                  <p>{user.email}</p>
+                  <div className="user-actions">
+
+                  <button className="edit-btn" onClick={() => handleEdit(user)}>Edit</button>
+                  <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
       )}
 
       <div className="pagination">
-        <button disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
-        <span>Page {page}</span>
-        <button disabled={page >= totalPages} onClick={() => setPage(page + 1)}>Next</button>
+        <button disabled={page === 1} onClick={() => setPage(page - 1)}>&larr; Previous</button>
+        <span className="span">Page {page}</span>
+        <button disabled={page >= totalPages} onClick={() => setPage(page + 1)}>Next &rarr;</button>
       </div>
     </div>
   );

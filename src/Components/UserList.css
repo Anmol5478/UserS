@@ -54,6 +54,11 @@
     color: #555;
     margin-bottom: 10px;
   }
+  .user-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
   
   /* Delete Button */
   .delete-btn {
@@ -72,10 +77,16 @@
   
   /* Pagination */
   .pagination {
+    display: flex;
     margin-top: 20px;
+    justify-content: space-around;
+    align-items: center;
   }
   
   .pagination button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #007bff;
     color: white;
     border: none;
@@ -83,10 +94,12 @@
     cursor: pointer;
     border-radius: 5px;
     margin: 5px;
+    width: 40%;
     transition: background 0.3s ease;
   }
   
   .pagination button:disabled {
+    width: 40%;
     background-color: #ccc;
     cursor: not-allowed;
   }
@@ -95,6 +108,9 @@
     background-color: #0056b3;
   }
   
+  .span{
+    width: 20%;
+  }
   /* Logout Button */
   .logout-btn {
     display: block;
@@ -111,5 +127,26 @@
   
   .logout-btn:hover {
     background-color: #e68900;
+  }
+  .edit-btn, .save-btn, .cancel-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+  
+  .cancel-btn {
+    background-color: #f44336;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
