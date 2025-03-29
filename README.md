@@ -3,7 +3,7 @@
 This project is a **React-based User Management Application** that allows users to log in and view a list of users fetched from an API. The project is deployed on Netlify.
 
 ## 🚀 Live Demo
-Check out the live demo: [User Management App](https://www.reqres-user.netlify.app)
+Check out the live demo: [User Management App](https://reqres-user.netlify.app/)
 
 ## 📌 Features
 - User authentication (Login with credentials)
