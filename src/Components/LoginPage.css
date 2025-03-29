@@ -1,44 +1,141 @@
-/* src/pages/LoginPage.css */
-.login-container {
-  width: 300px;
-  margin: 100px auto;
-  padding: 20px;
-  text-align: center;
-  background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Login Page Background */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Overlay for better contrast */
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+/* Welcome Section */
+.login-background {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  width: 90%;
+  color: #fff;
+}
+
+.login-background h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-background p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+/* Login Container */
+.login-container {
+  width: 350px;
+  margin: 20px auto;
+  padding: 25px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Form Styles */
 h2 {
   margin-bottom: 15px;
-  color: #333;
+  color: #fff;
+  font-size: 22px;
 }
 
+/* Input Fields */
 input {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #fff;
+}
+
+/* Buttons */
 button {
-  width: 90%;
-  padding: 10px;
-  background: #007bff;
+  width: 100%;
+  padding: 12px;
+  background: #ff6b6b;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #ff4c4c;
 }
 
+/* Error Message */
 .error {
-  color: red;
+  color: #ff4444;
   margin-top: 10px;
+  font-size: 14px;
 }
 
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .login-background {
+    padding: 20px;
+  }
+
+  .login-background h1 {
+    font-size: 24px;
+  }
+
+  .login-background p {
+    font-size: 14px;
+  }
+}
 
